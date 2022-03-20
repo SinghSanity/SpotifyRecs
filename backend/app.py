@@ -5,9 +5,16 @@ app = Flask(__name__)
 def hello_world():
     return 'Hello, from Flask!'
 
-@app.route('/members')
+@app.route('/info')
 def members():
-    return {"members": ["Member 1", "Member 2"]}
+    return {
+        "title": "Title", 
+        "artists": ["artist", "artist2"], 
+        "album": "album", 
+        "preview_sound": "preview", 
+        "spotify": "spotify"
+    }
+
 
 
 if __name__ == '__main__':

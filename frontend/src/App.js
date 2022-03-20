@@ -5,6 +5,17 @@ import React, { useState, useRef, useEffect } from 'react';
 
 function App() {
 
+  const [currentTime, setCurrentTime] = useState(0);
+
+  useEffect(() => {
+    fetch('/info').then(res => res.json()).then(data => {
+      setCurrentTime(data.title);
+    });
+  }, []);
+
+  console.log(currentTime);
+
+
   return (
     <div className="App">
       
@@ -13,20 +24,7 @@ function App() {
         <Info title="Hello" artists="Artists" cover={logo} preview_sound="Preview" spotify="Spotify" />
 
       </div>
-      {/*<header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>*/}
+
     </div>
   );
 }
