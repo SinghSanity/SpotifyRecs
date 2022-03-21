@@ -12,7 +12,8 @@ def hello_world():
 @app.route('/info')
 def info():
 
-    ids = ['66CXWjxzNUsdJxJ2JdwvnR', '6M2wZ9GZgrQXHCFfjv46we', '5WUlDfRSoLAfcVSX1WnrxN']
+    # Arianna Grande, Dua Lipa, and Doja Cat
+    ids = ['66CXWjxzNUsdJxJ2JdwvnR', '6M2wZ9GZgrQXHCFfjv46we', '5cj0lLjcoR7YOSnhnX0Po5']
     index = random.randint(0, len(ids) - 1)
 
     info = get_info(ids[index])
