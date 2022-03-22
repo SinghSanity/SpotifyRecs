@@ -5,24 +5,30 @@ import React, { useState, useRef, useEffect } from 'react';
 
 function App() {
 
-  const [currentTime, setCurrentTime] = useState(0);
+  const [title, setTitle] = useState('');
+  const [artists, setArtists] = useState('');
+  const [image, setImage] = useState('');
+  const [preview, setPreview] = useState('');
+  const [spotify, setSpotify] = useState('');
 
   useEffect(() => {
+    
     fetch('/info').then(res => res.json()).then(data => {
-      setCurrentTime(data.title);
+      setTitle(data.title);
+      setArtists(data.artists);
+      setImage(data.image);
+      setPreview(data.preview);
+      setSpotify(data.spotify);
     });
   }, []);
 
-  console.log(currentTime);
-
+  console.log(preview);
 
   return (
-    <div className="App">
+    <div>
       
       <div className='setter'>
-        <Info title="This is a super long title that I want to see how it cleans up" artists="Artists" cover={logo} preview_sound="Preview" spotify="Spotify" />
-        <Info title="Hello" artists="Artists" cover={logo} preview_sound="Preview" spotify="Spotify" />
-
+        <Info title={title} artists={artists} cover={image} preview_sound={preview} spotify={spotify} />
       </div>
 
     </div>
