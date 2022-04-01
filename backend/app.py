@@ -1,5 +1,5 @@
-from flask import Flask
 import random
+from flask import Flask
 
 from data import get_info
 
@@ -11,7 +11,6 @@ def hello_world():
 
 @app.route('/info')
 def info():
-
     # Arianna Grande, Dua Lipa, and Doja Cat
     ids = ['66CXWjxzNUsdJxJ2JdwvnR', '6M2wZ9GZgrQXHCFfjv46we', '5cj0lLjcoR7YOSnhnX0Po5']
     index = random.randint(0, len(ids) - 1)
@@ -26,7 +25,15 @@ def info():
         "spotify": info[4]
     }
 
-
+@app.route('/search', methods=['POST'])
+def search():
+    return  {
+        "title": "",
+        "artists": "",
+        "image": "",
+        "preview": "",
+        "spotify": ""
+    }
 
 if __name__ == '__main__':
     app.run(debug=True)
