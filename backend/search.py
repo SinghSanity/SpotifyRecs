@@ -3,7 +3,7 @@ import requests
 from auth import get_auth
 
 #This method will search for an artist and get their URI to send to data.py
-def search(artist):
+def search_artist(artist):
     access_token = get_auth()
     headers = {
         'Authorization': 'Bearer {TOKEN}'.format(TOKEN=access_token)

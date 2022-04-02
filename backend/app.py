@@ -1,7 +1,8 @@
 import random
-from flask import Flask
+from flask import Flask, request
 
 from data import get_info
+from search import search_artist
 
 app = Flask(__name__)
 
@@ -25,14 +26,20 @@ def info():
         "spotify": info[4]
     }
 
-@app.route('/search', methods=['POST'])
+@app.route('/search', methods=['GET'])
 def search():
-    return  {
-        "title": "",
-        "artists": "",
-        "image": "",
-        "preview": "",
-        "spotify": ""
+    artist = request.args.get('artist')
+    print(artist)
+
+    artist_id = search_artist(artist)
+    info = get_info(artist_id)
+
+    return {
+        "title": info[0], 
+        "artists": info[1], 
+        "image": info[2], 
+        "preview": info[3], 
+        "spotify": info[4]
     }
 
 if __name__ == '__main__':
