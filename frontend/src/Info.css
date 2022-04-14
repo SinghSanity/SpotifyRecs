@@ -5,8 +5,12 @@
     margin:auto;
 }
 .container{  
-    border:1px solid #333;
-    /*margin-top: 1px;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search_field{  
     display: flex;
     justify-content: center;
     align-items: center;

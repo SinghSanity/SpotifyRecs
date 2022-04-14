@@ -31,16 +31,22 @@ def search():
     artist = request.args.get('artist')
     print(artist)
 
-    artist_id = search_artist(artist)
-    info = get_info(artist_id)
+    try:
+        artist_id = search_artist(artist)
+        info = get_info(artist_id)
 
-    return {
-        "title": info[0], 
-        "artists": info[1], 
-        "image": info[2], 
-        "preview": info[3], 
-        "spotify": info[4]
-    }
+        return {
+            "status": "success",
+            "title": info[0], 
+            "artists": info[1], 
+            "image": info[2], 
+            "preview": info[3], 
+            "spotify": info[4]
+        }
+    except:
+        return {
+            "status": "failure"
+        }
 
 if __name__ == '__main__':
     app.run(debug=True)
