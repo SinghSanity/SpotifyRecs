@@ -15,20 +15,20 @@ function Info(props) {
 
     return(
         <div className='container'>
-            <div className='left'>
-                <img src= {props.cover} alt="" width="300px"/>
-            </div>
-            <div className='right'>
-                <h2>{props.title}</h2>
-                <h2>By: {props.artists}</h2>
-                <div>
-                   {preview ? 
-                    <ReactAudioPlayer src={props.preview_sound} controls /> 
-                    :
-                   <h2>No Preview Available</h2>
-                } 
+            <div className='card'>
+                <img src= {props.cover} alt="" width="100%"/>
+                <div className='card-words'>
+                    <h3>{props.title}</h3>
+                    <h3>By: {props.artists}</h3>
+                    <div>
+                        {preview ? 
+                            <ReactAudioPlayer src={props.preview_sound} controls /> 
+                            :
+                            <br />
+                        } 
+                    </div>
+                    <a href={props.spotify} target="_blank"><h3>Play me on Spotify!</h3></a>
                 </div>
-                <a href={props.spotify} target="_blank"><h2>Play me on Spotify!</h2></a>
             </div>
         </div>
     )

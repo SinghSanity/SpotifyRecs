@@ -62,8 +62,6 @@ function App() {
         <Info title={title} artists={artists} cover={image} preview_sound={preview} spotify={spotify} />
       </div>
 
-
-
     </div>
   );
 }
