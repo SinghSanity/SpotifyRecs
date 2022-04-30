@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import ReactAudioPlayer from 'react-audio-player';
 import './Info.css';
 
@@ -16,9 +16,9 @@ function Info(props) {
     return(
         <div className='container'>
             <div className='card'>
-                <img src= {props.cover} alt="" width="100%"/>
+                <a href={props.spotify} target="__blank"><img src= {props.cover} alt="" width="100%"/></a>
                 <div className='card-words'>
-                    <h3>{props.title}</h3>
+                    <h2>{props.title}</h2>
                     <h3>By: {props.artists}</h3>
                     <div>
                         {preview ? 
@@ -27,7 +27,6 @@ function Info(props) {
                             <br />
                         } 
                     </div>
-                    <a href={props.spotify} target="_blank"><h3>Play me on Spotify!</h3></a>
                 </div>
             </div>
         </div>
